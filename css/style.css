@@ -470,6 +470,10 @@ body {
     gap: 20px;
 }
 
+.section-footer>p{
+    margin: 0;
+}
+
 .section-footer ul {
     padding: 0;
     margin: 0;
@@ -481,9 +485,20 @@ body {
     text-align: left;
     margin-bottom: 20px;
 }
+.section-footer ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+.section-footer ul li a:hover{
+    color: #dc780b;
+}
 
 .section-footer ul li:nth-child(1) {
     margin-top: 25px;
+}
+.contact-info a{
+    text-decoration: none;
+    color: #dc780b;
 }
 
 .section-footer .social {
