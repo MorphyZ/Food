@@ -51,12 +51,12 @@ body {
     font-weight: 600;
 }
 
-.menu a:hover {
+.menu a:hover,.menu a:focus {
     color: #dc780b;
     font-weight: 500;
 }
 
-.menu a.active:hover {
+.menu a.active:hover,.menu a.active:focus {
     color: #dc780b;
     font-weight: 600;
 }
@@ -70,12 +70,67 @@ body {
     transition: all ease .3s;
 }
 
-.btn-order:hover {
+.btn-order:hover,.btn-order:focus {
     background: #fd8a0e;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
+}
+
+/* Бургер (по умолчанию скрыт) */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    background: #000;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Мобильное меню (справа, скрыто) */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 260px;
+    height: 100%;
+    background: #fff;
+    padding: 60px 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    transition: right 0.3s ease;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+/* Затемнение фона */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .hero {
@@ -118,7 +173,7 @@ body {
     margin-right: 30px;
 }
 
-.hero-buttons a.btn:hover {
+.hero-buttons a.btn:hover,.hero-buttons a.btn:focus {
     background: #fd8a0e;
 }
 
@@ -128,7 +183,7 @@ body {
     color: #dc780b;
 }
 
-.hero-buttons a.btn.btn-secondary:hover {
+.hero-buttons a.btn.btn-secondary:hover,.hero-buttons a.btn.btn-secondary:focus {
     background: #f1f1f1;
 
 }
@@ -274,6 +329,62 @@ body {
     width: calc(33% - 12px);
 }
 
+.more-btn {
+    background: transparent;
+    border: 1.5px solid #babec4;
+    color: #dc780b;
+    margin-top: 50px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all ease .3s;
+    cursor: pointer;
+}
+
+.more-btn:hover,
+.more-btn:focus {
+    background: #f1f1f1;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* затемнение */
+  display: none; /* скрыт по умолчанию */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup.active {
+  display: flex;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 16px; /* Отступ от краёв */
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 .item-card p,
 .item-card h3 {
     margin: 0;
@@ -318,7 +429,7 @@ body {
     transition: all 0.3s ease;
 }
 
-.item-add-cart:hover {
+.item-add-cart:hover,.item-add-cart:focus {
     background: #fd8a0e;
 }
 
@@ -470,7 +581,7 @@ body {
     gap: 20px;
 }
 
-.section-footer>p{
+.section-footer>p {
     margin: 0;
 }
 
@@ -485,18 +596,21 @@ body {
     text-align: left;
     margin-bottom: 20px;
 }
-.section-footer ul li a{
+
+.section-footer ul li a {
     text-decoration: none;
     color: #fff;
 }
-.section-footer ul li a:hover{
+
+.section-footer ul li a:hover,.section-footer ul li a:focus {
     color: #dc780b;
 }
 
 .section-footer ul li:nth-child(1) {
     margin-top: 25px;
 }
-.contact-info a{
+
+.contact-info a {
     text-decoration: none;
     color: #dc780b;
 }
@@ -510,6 +624,7 @@ body {
 @media (max-width: 1200px) {
     .maxwidth-theme-footer {
         width: unset;
+        gap: 40px;
     }
 }
 
@@ -537,6 +652,10 @@ body {
 
     .header {
         background: none;
+    }
+
+    .burger {
+        display: flex;
     }
 
     .hero {
@@ -567,6 +686,14 @@ body {
         width: 100%;
     }
 
+    .menu {
+        flex-direction: column;
+    }
+
+    .navbar {
+        flex: 1;
+    }
+
     .section-footer:last-child {
         flex: 1 0 100%;
     }
@@ -582,7 +709,8 @@ body {
         width: 45%;
         gap: 20px;
     }
-    .hero-buttons a.btn{
+
+    .hero-buttons a.btn {
         text-align: center;
         margin: 0;
     }

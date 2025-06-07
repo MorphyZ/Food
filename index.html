@@ -30,7 +30,15 @@
                     <li><a href="#">Features</a></li>
                     <li><a href="#">Contact us</a></li>
                 </ul>
+                <button class="burger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
             </nav>
+            <!-- Затемнение -->
+            <div class="overlay"></div>
+            <div class="mobile-menu">
+                <!-- Будем клонировать с помощью JS  -->
+            </div>
             <a href="#" class="btn-order">Booking Now</a>
         </div>
 
@@ -607,6 +615,14 @@
 
             </div>
         </div>
+        <button id="learn-more" class="more-btn">Learn More</button>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <button class="popup-close">&times;</button>
+                <h2>Тут информация</h2>
+                <p>Большая информация о продуктах открытая в попапе через JS</p>
+            </div>
+        </div>
     </section>
 
     <!-- Testimonials -->
@@ -861,7 +877,7 @@
             </div>
             <div class="section-footer">
                 <p>Menu</p>
-                <ul> 
+                <ul>
                     <li>
                         <a href="#">Landingpage</a>
                     </li>
